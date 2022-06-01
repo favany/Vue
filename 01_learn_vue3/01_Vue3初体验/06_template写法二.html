@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <template id="myApp">
+    <div>
+      <h2>{{ message }}</h2>
+      <h2>{{ counter }}</h2>
+      <button @click='increment'>+1</button>
+      <button @click='decrement'>-1</button>
+      <button @click='arrowFunc'>获取箭头函数中的 this </button>
+    </div>
+  </template>
+  <script src="../../js/vue.js"></script>
+  <script>
+    document.querySelector("#why")
+    // controller
+    Vue.createApp({
+      // View
+      template: '#myApp',
+      data: function () {
+        return {
+          message: "Hello world",
+          counter: 0 // Model
+        }
+      },
+      // 方法
+      methods: {
+        increment() {
+          this.counter++;
+        },
+        decrement: function () {
+          console.log(this)
+          this.counter++;
+        },
+        arrowFunc: () => {
+          // 写一个箭头函数后，这个 this 就是 window
+          console.log(this)
+        }
+      }
+    }).mount('#app');
+
+    // 隐式绑定
+    const foo = function () {
+      console.log(this)
+    }
+
+    foo() // window
+
+    const foo2 = () => {
+      console.log(this) // 没有绑定 this，会去上层找 this，因此是 window
+    } // Window
+
+
+    const obj = { bar: foo }
+    obj.bar() //obj
+
+    const info = { name: "why" }
+
+    // 显式绑定
+    const newBar = foo.bind(info)
+    newBar();
+  </script>
+</body>
+
+</html>
