@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <template id="my-app">
+    <h2 :style="[style, style2]">style 数组绑定</h2>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const App = {
+      template: "#my-app",
+      data() {
+        return {
+          style: {
+            color: "red",
+            fontSize: '30px',
+          },
+          style2: {
+            textDecoration: "underline",
+          }
+        }
+      }
+    }
+
+    Vue.createApp(App).mount("#app");
+  </script>
+
+</body>
+
+</html>

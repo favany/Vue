@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  class的对象语法 {'className': boolean}
+
+  <template id="my-app">
+    <div :class="{active: isActive, see: true}">好好好</div>
+    <!-- class 和 :class结合 -->
+    <div class="abc cba" :class="{active: isActive, see: true}">class 和 :class 结合</div>
+    <div :class="classObj">class 对象语法</div>
+    <div :class="getClass()">class methods 语法</div>
+    <button @click="toggle">切换</button>
+
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const App = {
+      template: "#my-app",
+      data() {
+        return {
+          isActive: true,
+          classObj: { isActive: true },
+          name: "active"
+        }
+      },
+      methods: {
+        toggle() {
+          this.isActive = !this.isActive
+        },
+        getClass() {
+          return { isActive: true }
+        }
+      }
+    }
+
+    Vue.createApp(App).mount("#app");
+  </script>
+
+</body>
+
+</html>

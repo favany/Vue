@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <template id="my-app">
+    <div :style="{color: finalColor}">aaa</div>
+    <!-- 带横线的属性需要加引号，或者使用驼峰 -->
+    <div :style="{'font-size': size + 'px'}">aaa</div>
+    <div :style="{fontSize: size + 'px'}">aaa</div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const App = {
+      template: "#my-app",
+      data() {
+        return {
+          message: "Hello World",
+          finalColor: "red",
+          size: 48
+        }
+      }
+    }
+
+    Vue.createApp(App).mount("#app");
+  </script>
+
+</body>
+
+</html>
