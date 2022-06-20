@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 1. 对象的引用赋值
+  <script>
+    // 对象是引用类型 （指针）保存的是内存地址
+    const info = { name: "a", age: 22 }  // 保存的是内存地址
+    const obj = info
+    info.name = "b"
+    console.log("1.", obj)
+  </script>
+
+
+  2. 对象的浅拷贝 -->
+  <!-- <script>
+    const info2 = { name: "a", age: 22 };
+    const obj2 = Object.assign({}, info2);
+    info.name = "b"
+    console.log("2.", obj2)
+  </script> -->
+
+  <!-- 3. 对象的深拷贝 -->
+  <!-- <script>
+    const info3 = { name: "a", age: 22 };
+    const obj3 = JSON.parse(JSON.stringify(info));
+    info3.name = "b"
+    console.log("3.", obj3)
+  </script> -->
+
+  <!-- lodash 浅拷贝 -->
+  <!-- <script>
+    let info4 = { name: "a", age: 22 };
+    let obj4 = _.clone(info4)
+    info4.name = "b"
+    console.log("before", info4)
+    console.log("after", obj4)
+  </script> -->
+
+  <!-- lodash 深拷贝 -->
+  <!-- <script>
+    let info4 = { name: "a", age: 22 };
+    let obj4 = _.clone(info4)
+    obj4.name = "b"
+    console.log("before", obj4)
+    console.log("after", info4)
+  </script> -->
+</body>
+
+</html>
