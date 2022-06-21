@@ -13,8 +13,13 @@
   <div id="app"></div>
 
   <template id="my-app">
-    <input type="text" v-model="message">
-    <h2>{{ message }}</h2>
+    <input type="text" v-model.lazy="info">
+    <!-- .lazy 是将 input 事件切换成 change 事件，只有在提交的时候才会触发。 -->
+    <input type="text" v-model.number="info2">
+    <!-- 数字类型 -->
+    {{ info }} {{ typeof info2}}
+    <button @click="showResult">显示结果</button>
+    <!-- .trim 去除两边空格 -->
   </template>
 
   <script src="../js/vue.js"></script>
@@ -23,9 +28,15 @@
       template: "#my-app",
       data() {
         return {
-          message: "Hello World"
+          info: "Hello World",
+          info2: "",
         }
-      }
+      },
+      methods: {
+        showResult() {
+          console.log(this.info)
+        }
+      },
     }
 
     Vue.createApp(App).mount("#app");
