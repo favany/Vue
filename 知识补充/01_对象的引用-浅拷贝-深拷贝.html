@@ -10,30 +10,31 @@
 </head>
 
 <body>
-  <!-- 1. 对象的引用赋值
-  <script>
+  <!-- 1. 对象的引用赋值 -->
+  <!-- <script>
     // 对象是引用类型 （指针）保存的是内存地址
     const info = { name: "a", age: 22 }  // 保存的是内存地址
     const obj = info
     info.name = "b"
-    console.log("1.", obj)
+    console.log(obj)
+    </script> -->
+
+
+  <!-- 2. 对象的浅拷贝 -->
+  <script>
+    const info = { name: "liu", friend: { name: "zhang" } };
+    const obj = Object.assign({}, info); // 一层的拷贝是浅拷贝，多层传递的是内存地址，所以依然是深拷贝
+    info.name = "li"
+    info.friend.name = 'li'
+    console.log(obj)
   </script>
-
-
-  2. 对象的浅拷贝 -->
-  <!-- <script>
-    const info2 = { name: "a", age: 22 };
-    const obj2 = Object.assign({}, info2);
-    info.name = "b"
-    console.log("2.", obj2)
-  </script> -->
 
   <!-- 3. 对象的深拷贝 -->
   <!-- <script>
-    const info3 = { name: "a", age: 22 };
-    const obj3 = JSON.parse(JSON.stringify(info));
-    info3.name = "b"
-    console.log("3.", obj3)
+    const info = { name: "li", age: 22 };
+    const obj = JSON.parse(JSON.stringify(info));
+    info.name = "liu";
+    console.log(obj);
   </script> -->
 
   <!-- lodash 浅拷贝 -->
