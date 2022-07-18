@@ -1,7 +1,9 @@
 <template>
- <h2> {{ title }}</h2>
- <p> {{ desc }}</p>
- <button @click="btnClick"></button>
+  <div>
+    <h2> {{ title }}</h2>
+    <p> {{ desc }}</p>
+    <button @click="btnClick"></button>
+  </div>
 </template>
 
 <script>
@@ -18,10 +20,6 @@ export default {
     }
   }
 }
-
 </script>
 
-<style>
-
-
-</style>
+<style scoped></style>

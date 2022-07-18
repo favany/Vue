@@ -9,21 +9,19 @@
 </head>
 
 <body>
-
   <div id="app"></div>
 
   <template id="my-app">
     <h2>{{ message }}</h2>
-    <component-a>component-a
-  </template>
+    <component-a></component-a>
+    </template>
 
   <template id="component-a">
     <h2>我是组件</h2>
   </template>
 
-  <script src="../js/vue.js"></script>
+  <script src="../../js/vue.js"></script>
   <script>
-
     const ComponentA = {
       template: "#component-a"
     }
@@ -31,7 +29,8 @@
     const App = {
       template: "#my-app",
       components: {
-        // key: 组件名称
+      // key: 组件名称
+			// value: 组件对象
         ComponentA,
       },
       data() {
@@ -43,8 +42,7 @@
 
     app = Vue.createApp(App)
     app.mount("#app");
-  </script>
-
+</script>
 </body>
 
 </html>

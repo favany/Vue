@@ -17,54 +17,57 @@
     <!-- 1. 绑定 textarea -->
     <label for="intro">
       自我介绍
-      <textarea name="" id="" cols="30" rows="10" v-model="intro"></textarea>
+      <textarea name="" id="" cols="30" rows="10" v-model.lazy.number="intro"></textarea>
     </label>
-
+    <h5> intro {{intro}} {{ typeof intro}}</h5>
     <!-- 2. 绑定 checkbox -->
+    <!-- 单选框 -->
     <label for="agree">
-      <input v-model="isAgree" type="checkbox"> 同意协议
+      <input v-model="isAgree" type="checkbox" id="agree"> 同意协议
     </label>
-
-    <h5> intro {{intro}} isAgree {{isAgree}} hobbies {{ hobbies }} {{ fruit }}</h5>
-
+    <h5>isAgree {{isAgree}}</h5>
+    <!-- 多选框 -->
     <span>
       你的爱好：
     </span>
-
-    <!-- 2. checkbox -->
-
     <label for="basketball">
       <input id="basketball" type="checkbox" value="basketball" v-model="hobbies"> 篮球
     </label>
-    <label for="">
-      <input type="checkbox" id="basketball" value="baseball" v-model="hobbies"> 排球
+    <label for="baseball">
+      <input type="checkbox" id="baseball" value="baseball" v-model="hobbies"> 排球
     </label>
-    <label for="">
-      <input type="checkbox" id="basketball" value="tennis" v-model="hobbies"> 网球
+    <label for="tennis">
+      <input type="checkbox" id="tennis" value="tennis" v-model="hobbies"> 网球
     </label>
     <br>
+    <h5>hobbies {{ hobbies }}</h5>
 
     <!-- 3. radio -->
-
-    <label for="male">
+    <label for="gender">
       <input type="radio" name="" id="" value="male" v-model="gender"> male
       <input type="radio" name="" id="" value="female" v-model="gender"> female
     </label>
+    <h5>gender {{gender}}</h5>
+
     <br>
 
     <!-- 4. select -->
-    <!-- <span>喜欢的水果</span>
+    <span>喜欢的水果</span>
     <select name="fruit" id="" v-model="fruit">
-      <option value="apple"> 苹果</option>
-    </select> -->
+      <option value="apple">苹果</option>
+      <option value="banana">香蕉</option>
+      </select>
 
+    <br>
     <span>喜欢的水果</span>
     <select v-model="fruit">
+      <!-- multiple 多选 size="2" 多选高度 -->
       <option v-for="item in fruitOptions" :value="item.value"> {{ item.name }} </option>
     </select>
+    <h5>{{fruit}}</h5>
   </template>
 
-  <script src="../js/vue.js"></script>
+  <script src="../../js/vue.js"></script>
   <script>
     const App = {
       template: "#my-app",
@@ -72,7 +75,7 @@
         return {
           intro: "Hello World",
           isAgree: false,
-          hobbies: ['aaa'],
+          hobbies: [],
           gender: "",
           fruit: [],
           fruitOptions: [

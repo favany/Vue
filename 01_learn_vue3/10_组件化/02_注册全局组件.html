@@ -20,7 +20,7 @@
     <h2>我是 component-a 组件</h2>
   </template>
 
-  <script src="../js/vue.js"></script>
+  <script src="../../js/vue.js"></script>
   <script>
     const App = {
       template: "#my-app",
@@ -31,7 +31,15 @@
     // 使用 app 注册一个全局组件
     // 意味着注册的这个组件可以在任何的组件模板中使用
     app.component("component-a", {
-      template: `#component-a`
+      template: `#component-a`,
+      data() {
+        return {
+
+        }
+      },
+      methods: {
+
+      },
     })
 
     app.mount("#app");
